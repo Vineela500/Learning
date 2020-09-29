@@ -1,0 +1,63 @@
+Task1
+-------
+#! /bin/bash
+echo "Enter 1 to add 2 delete 3"
+read num
+if [ $num -eq 1 ]
+then
+echo "Enter id name age department salary"
+read id name age dept sal
+sed -i "1 a $id $name $age $dept $sal" employees 
+fi
+if [ $num -eq 2 ]
+then
+echo "Enter id where you wish to modify"
+read id
+echo "Enter old data"
+read old
+echo " Enter the modified details"
+read new
+grep $id employees | sed -i "s/$old/$new/" employees
+fi
+if [ $num -eq 3 ]
+then
+echo "Enter the id to del"
+read id
+sed -i "/$id/d" employees
+fi
+
+Assignment:
+1) Basic cut , copy and paste in vi editor
+-->cut (dd) copy (yy) paste(p)//For single line
+-->cutting n lines (ndd) copying n line(nyy)
+-->cutting from the cursor till the end of line (d$)
+-->cutting from the cursor till the end of line (y$)
+
+2)
+i)cut: cut -b 1,2,3 file.txt
+ii)tee: tee --version, tee --help
+iii)watch: watch -d free -m
+
+3)
+file . -name filename.txt
+Finds fil in current and sub-directories
+4)
+diff --brief <(sort file1)<(sort file2)
+
+5)
+#! /bin/bash
+echo "Enter a number"
+read num
+cube=num*num*num
+echo $cube
+
+6)
+#! /bin/bash
+if [ ! -f /home/user/abc.txt]
+then
+echo "File not found"
+else
+count=($(wc -w /home/user/abc.txt))
+echo $count
+fi
+"Hello world1"
