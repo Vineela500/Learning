@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Himalayan National Park</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Task8.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+.column1 {
+ width: 50%;
+ height: 600px;
+}
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+            .change {
+    
+    text-align: center;
+    padding: 1px;
+    background-color: wheat;
+    color: black;
+  }
+  body {
+    background-image: url(img/bg.jpg);
+    background-repeat: no-repeat;
+      background-size: cover;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="header">
+  
+   
+   
+  
+  <a class="logo">Manali Tourism</a>
+  <div class="header-right">
+    <a  href="index.html">Home</a>
+    <a href="tourist.html">Tourist places</a>
+    <a href="Hotel.html">Hotels</a>
+    
+    <a href="Contact.html">Contact</a>
+  </div>
+</div>
+<div class="row"> 
+  <div class="column">
+    <img src="img/hn1.jpg" style="width:100%">
+    <img src="img/hn2.jpg" style="width:100%">
+    
+  </div>
+  <div class="column">
+    <img src="img/hn3.jpg" style="width:100%">
+    <img src="img/hn4.jpg" style="width:100%">
+    
+  </div>  
+  <div class = "column1">
+    <h1 style="text-align: center; color: black;" >Great Himalayan National Park</h1>
+    <p>
+      <pre >
+        <h3 style="text-align: center;color: black;">
+The Great Himalayan National Park Conservation Area 
+is located in the western part of the Himalayan Mountains 
+in the northern Indian State of Himachal Pradesh. The 
+90,540 ha property includes the upper mountain glacial and 
+snow melt water source origins of the westerly flowing Jiwa Nal, 
+Sainj and Tirthan Rivers and the north-westerly flowing Parvati 
+River which are all headwater tributaries to the River Beas and 
+subsequently, the Indus River. The property includes an elevational 
+range from high alpine peaks of over 6,000m a.s.l to riverine forest 
+at altitudes below 2,000m a.s.l. The Great Himalayan National Park 
+Conservation Area encompasses the catchments of water supplies which 
+are vital to millions of downstream users. 
+        </h3>
+            </pre></p>
+  </div>
+</div>
+<div class="change">
+  <p>Manali Tourism<br>
+  <a href="mailto:hege@example.com">manalitourism@travels.com</a></p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Task8.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+color:black}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+.column1 {
+ width: 50%;
+ height: 600px;
+}
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+.change {
+    
+    text-align: center;
+    padding: 1px;
+    background-color: wheat;
+    color: black;
+  }
+</style>
+</head>
+<body>
+    <div class="header">
+  
+       
+       
+      
+    
+      <div class="header-right">
+        <a  href="index.html">Home</a>
+        <a href="tourist.html">Tourist places</a>
+        <a href="Hotel.html">Hotels</a>
+        
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            </div>
+<div class="column1">
+            <h3>Please fill the details so we can make the best plan for your Manali tour</h3>
+
+<div class="container">
+  <form action="/action_page.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <label for="lname">Email</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your email..">
+    
+    <label for="budget">Budget</label>
+    <select name="country">
+      <option value="20k-30k">20k-30k</option>
+      <option value="30k-50k">30k-50k</option>
+      <option value="50k-70k">50k-70k</option>
+    </select>
+
+    <label for="budget">Age Group</label>
+    <select name="country">
+      <option value="20k-30k">10-15</option>
+      <option value="30k-50k">16-24</option>
+      <option value="50k-70k">25-40</option>
+      <option value="50k-70k">41-55</option>
+      <option value="50k-70k">56 and above</option>
+    </select>
+
+    
+
+    <input type="submit" value="Submit">
+  </form>
+  </div></div>
+  <div class="column"></div></div>
+  
+</body>
+</html>
