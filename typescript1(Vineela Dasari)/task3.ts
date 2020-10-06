@@ -1,0 +1,12 @@
+var num1:number = 20;
+var num2: number = 10;
+var add:number = num1+num2;
+var sub:number = num1-num2;
+var mul:number = num1*num2;
+var div: number = num1/num2;
+var rem: number = num1%num2;
+console.log("Addition: "+add);
+console.log("Subtraction: "+sub);
+console.log("Multiplication: "+mul);
+console.log("Division: ",div);
+console.log("Remainder: "+rem);
