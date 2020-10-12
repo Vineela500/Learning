@@ -1,0 +1,45 @@
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    <div *ngIf="flag!=0">
+<table>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Depatment</th>
+    <th>Age</th>
+    <tr>
+<td>{{id}}</td>
+<td> {{name}}</td> 
+<td>{{dept}}</td>
+<td> {{age}}</td>
+</tr></table>
+</div>
+<div *ngIf="flag==0">
+
+<table>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Depatment</th>
+    <th>Age</th>
+    <tr *ngFor="let e of emp">
+<td>{{e.id}}</td>
+<td> {{e.name}}</td> 
+<td>{{e.dept}}</td>
+<td> {{e.age}}</td>
+</tr></table>
+</div>
