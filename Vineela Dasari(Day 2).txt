@@ -1,0 +1,108 @@
+1)select * from emp;
+2)select distinct job from emp;
+3)select * from emp order by sal asc;
+4)select * from emp order by deptno asc,job desc;
+5)select distinct job from emp order by job desc;
+6)select * from emp e where empno =(select mgr from emp);
+7)select * from emp where hiredate<'1981-01-01';
+8)select empno,ename, sal,sal/30,12*sal annsal from emp order by annsal asc;
+9)select empno,ename,job,hiredate,months_between(sysdate,hiredate) exp from emp where empno in(select mgr from emp);
+10)select empno,ename,sal,exp from emp where mgr=7369;
+11)select * from emp where comm.>sal;
+12)select * from emp where hiredate>('1981-06-30') and extract(year,hiredate)=1981 order by job asc;
+13)select * from emp where (sal/30)>100;
+14)select * from emp where job="CLERK" or job="ANALYST" order by job desc;
+15)select * from emp where hiredate in('1981,05,01','1981-12-03','1980-01-19');
+16)select * from emp where deptno=10 or deptno=20;
+17)select * from emp where hiredate between '1981-01-01' and '1981-12-31';
+18)select * from emp where hiredate year(hiredate)=1980 and month(hiredate)=08;
+19)select * from emp where 12*sal between 22000 and 45000;
+20)select ename from emp where length(ename)=5;
+21)select ename from emp where ename like 'S%' and length(ename)=5;
+22)select * from emp where length(ename)=4 and ename like '__R%';
+23)select * from emp where length(ename)=5 and ename like 'S%H';
+24)select * from emp where monthname(hiredate)='jan';
+25)select * from emp where dayname(hiredate)='mon' like '_a%';
+26)select * from emp where length(sal)=4 and sal like '%0';
+27)select * from emp where ename like '%LL%';
+28)select * from emp where year(hiredate) like '8%';
+29)select * emp where deptno not in(20);
+30)select * from emp where job not in ('PRESIDENT','MANAGER') order by sal asc;
+31)select * from emp where year(hiredate) not in('1981');
+32)select * from emp where empno not like '78%';
+33)select e.ename, m.ename from emp e, emp m where e.empno=m.mgr;
+34)select * from emp where monthname(hiredate) not in ('MAR');
+35)select * from emp where job="CLERK" and deptno=20;
+36)select * from emp where year(hiredate)='1981' and (deptno=30 or deptno=10);
+37)select * from emp where ename="SMITH";
+38)select loc from emp e, dept d where e.ename="SMITH" and e.deptno=d.deptno;
+39)select * from empe,dept d where(dname='ACCOUNTING' or dname='RESEARCH') and e.deptno=d.deptno order by e.deptno asc;
+40)select e.empno,e.ename,e.sal,d.dname from emp e, dept d where d.loc in('NEW YORK','DALLAS') and e.deptno=d.deptno and
+e.empno in(select e.empno from emp  e where e.job in('MANAGER',"ANALYST") and (months_between(sysdate,e.hiredate/12)>7 and e.comm is null));
+42) select * from emp e,salgrade s where e.sal between s.losal and s.hisal order by grade asc;
+43)select * from emp e, salgrade s where e.sal between s.losal and s.hisal and s.grade in(2,3);
+44)select * from emp e ,salgrade s where e.sal between s.losal and s.hisal and s.grade in(4,5) and e.empno in
+(select e.empno from emp e where e.job in ('MANAGER','ANALYST'));
+45)select e.empno,e.name,e.sal,s.grade,d.dname(months_between(sysdate,e.hired)/12)"EXP", 12*e.sal "ANNSAL" from emp e, dept d,salgrade s where e.deptno in(10,20) and e.deptno=d.deptno and e.sal between s.losal=s.hisal;
+47)select * from emp e,dept d where e.deptno(+)=d.deptno;
+48)select * from emp where sal>(select sal from emp where ename='BLAKE');
+49)select * from emp where job=(select job from emp where ename="ALLEN");
+50)select * from emp where hiredate<'1981-09-08';
+51)select * from emp e where hiredate<(select hiredate from emp where empno=e.mgr);
+52)select * from emp e where deptno=20 and job=(select job from emp where deptno=10 and e.job=job);
+53)select * from emp where sal=(select sal from emp where ename="SMITH") or sal=(select sal from emp where ename='FORD') order by sal desc;
+54)select * from emp where job=(select job from where ename="MILLER") or sal>(select sal from emp where ename="ALLEN");
+55)select * from emp where sal>(select sum(sal) from emp e1 where e1.job="SALESMAN");
+56)select * from emp e,dept d where d.loc in('CHICAGO','BOSTON') and e.deptno=d.deptno and e.hiredate<(select e.hiredate from emp e where e.ename='BLAKE')
+;
+57)select * from emp e where e.deptno in(select d.deptno from dept d where d.dname in("ACCOUNTING","RESEARCH"))
+ and e.sal>(select sal from emp where ename="ALLEN")
+ and e.hiredate<(select hiredate from emp where ename="SMITH") and e.empno in (select e.empno from emp e, salgrade s where e.sal between s.losal and s.hisal and s.grade in (3,4)) order by e.hiredate;
+58)select * from emp where job=(select job from emp where ename="SMITH") or job=(select job from emp where ename="ALLEN");
+59)select * from emp where extract(day from hiredate)<15;
+60)select * from emp e where e.deptno=10 and e.job not in(select job from emp where deptno=20);
+61)select * from emp1 where emp1.empno not in (select empno from emp2);
+62)select max(sal) from emp;
+63) select * from emp where sal=(select max(sal) from emp);
+64)select * from emp where sal=(select max(sal) from emp where job="SALESMAN");
+65)select * from emp e where e.deptno in (select d.deptno from dept d where d.loc = "CHICAGO") and
+e.hiredate in (select max(hiredate) from emp where empno in(select empno from emp e, salgrade s where e.sal
+between s.losal and s.hisal and s.grade=3));
+66)select * from emp where hiredate <(select max(hiredate) from emp where mgr in (select empno from where ename = 'KING));
+67)select * from emp where deptno in(select deptno from dept where dept.loc="NEW YORK") and empno in (select empno from emp e,salgrade s where e.sal between s.losal and s.hisal and
+s.grade in(3,4,5)) and job! ="PRESIDENT" and sal>(select max(sal) from emp where deptno in
+(select deptno from dept where dept.loc="CHICAGO") and job in ("MANAGER","SALESMAN") and mgr not in (select empno from emp where ename="KING"));
+68)select * from emp where hiredate in (select min(hiredate) from emp where extract(year,hiredate)="1981");
+69)select * from emp where job in(select job from emp where hiredate in (select min(hiredate)from emp where extract(year,hiredate)='1981'));
+70)select * from emp where hiredate in(select min(hiredate) from emp where empno in(select empno from emp e , salgrade s where e.sal between s.losal and s.hisal and s.grade in(4,5))) and mgr
+in(select empno from emp where ename="KING");
+71)select sum(sal) from emp where job="MANAGER";
+72)select job,sum(12*sal) from emp where extract(year,hiredate) = '1981' group by job;
+73)select sum(sal) from emp where empno in(select empno from emp e,salgrade s where e.sal between s.losal and s.hisal and s.grade=3);
+74)select avg(sal) from emp where job="CLERK";
+75)select * from emp where deptno=20 and sal>(select avg(sal) from emp where deptno=10);
+76)select deptno,job,count(*) from emp group by deptno,job;
+77)select w.mgr,count(*) from emp w,emp m where w.mgr=m.empno group by w.mgr order by w.mgr asc;
+78)select deptno,count(*) from emp group by deptno having count(*)>2;
+79) select s.grade,count(*),max(sal) from emp e,salgrade s where e.sal between s.losal and s.hisal group by s.grade;
+80)select d.dname,s.grade,count(*) from emp e,dept d,salgrade s where e.deptno=d.deptno and e.job="CLERK" and e.sal between s.losal and s.hisal group by d.dnam ,s.grade having count(*)>2;
+81)select d.deptno,d.dname,d.loc,count(*) from emp e,dept d where e.deptno=d.deptno group by d.deptno,d.dname,d.loc having count(*)=(select max(count(*))from emp group by deptno);
+82)select * from emp where mgr in(select empno from emp where ename="JONAS");
+83)select * from emp where(1.2*sal)>3000;
+84)select e.empno,e.ename,e.job,e.mgr,e.hiredate,e.sal,e.comm,e.deptno,d.dname from emp e,dept d where e.deptno=d.deptno;
+85)select * from emp where deptno not in(select deptno from emp where dname="SALES");
+86)select e.ename,e.deptno,e.sal,e.comm from emp e,dept d where e.deptno=d.deptno and d.loc="CHICAGO" and e.sal between 2000 and 5000;
+87)select * from emp w,emp m where m.mgr=m.empno and w.sal>m.sal;
+88)select s.grade,e.ename from emp e,salgrade s where e.deptno in(10,20) and hiredate<('1982-12-31') and(e.sal between s.losal and s.hisal and s.grade not in (4));
+89)select e.ename,e.job,d.dname,d.loc from emp e, dept d where e.deptno=d.deptno and e.empno in(select mgr from emp);
+90)select w.empno,w.ename,w.job,w.mgr,w.hiredate,w.sal,w.deptno,m.ename from emp w, emp m where w.mgr=m.empno and m.ename='JONAS';
+91)select e.ename,e.sal from emp e,salgrade s where e.name='FORD' and e.sal between s.losal and s.hisal and e.sal=s.hisal;
+92)select e.ename,e.job,d.dname,e.sal,s.grade from emp e,dept d,salgrade s where e.deptno=d.deptno and e.sal between s.losal and s.hisal order by e.deptno;
+93)select e.ename,e.job,e.sal,s.grade,d.dname from emp e,dept d ,salgrade s where e.deptno=d.deptno and e.sal between s.losal and s.hisal and e.job not in('CLERK') order by e.sal desc;
+94)select e.ename,e.job from emp e where mgr is null;
+95)select e.ename,e.deptno from e where e.sal in (select max(sal) from emp group by deptno);
+96)select * from emp where sal=(select (max(sal)+min(sal))/2 from emp);
+97)select deptno,count(*) from emp group by deptno having count(*)<3;
+98)select d.dname,count(*) from emp e ,dept d where e.deptno=d.deptno group by d.dname having count(*)<3;
+99)select * from emp m where m.empno in(select mgr from emp) and m.sal>(select avg(e.sal) from emp e where e.mgr=m.empno);
+100)select * from emp where empno in(select mgr from emp) and mgr not in(select empno from emp where job="PRESIDENT");
